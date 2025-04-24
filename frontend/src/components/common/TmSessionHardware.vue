@@ -8,10 +8,19 @@
       <div class="session-main">
         <HardwareState :loading="showLoading">
           <template v-if="status === `connect` || status === `detect`">
-            <p style="margin-bottom: 1rem;">
-              Please plug in your Ledger&nbsp;Nano and open the Harmony Ledger
-              app
+            <p style="text-align: left; margin-left: auto; width: fit-content;">
+              Please plug in your Ledger&nbsp;device and do the following:
             </p>
+            <ol v-if="!sending" style="margin-bottom: 1rem; text-align: left; margin-left: auto; width: fit-content;">
+              <li>1. Install the Ethereum app on your Ledger</li>
+              <li>2. Install the Harmony app on your Ledger</li>
+              <li>
+                3. Open the Harmony app on your Ledger and make sure you have enabled the
+                Blind Signing option in the app settings
+              </li>
+              <li>4. Log in choosing the Ledger option</li>
+              <li>5. Continue with your usual actions</li>
+            </ol>
           </template>
           <p
             v-if="connectionError === 'BROWSER_HID_DISABLED'"
